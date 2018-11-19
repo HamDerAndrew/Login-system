@@ -1,0 +1,92 @@
+/* ----- Generel styling ----- */
+
+body {
+    background-color: #272727;
+    color: white;
+}
+
+footer,
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: firebrick;
+    transition: .3s;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }      
+}
+
+/* ----- Custom styling ----- */
+
+.logo {
+    filter:invert(1);
+}
+
+.nav-logo {
+    max-width: 3em;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.158)
+}
+
+.top-form {
+    background-color: #474f56;
+}
+
+#intropage {
+    background-image: url("../img/XFirmaCover.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+  }
+
+.background-box {
+    background-color: #00000091;
+    color: white;
+    padding: 2em;
+    border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+    .background-box {
+        width: 85%;
+        margin: 0 auto;
+    }
+    
+    .intro-heading {
+        font-size: 5em; 
+    }
+    .intro-p {
+        font-size: 1.7em;
+    }
+}
+
+.tak {
+    padding: 5em 2em;
+}
+
+.fab {
+    font-size: 2em;
+    color: white;
+    margin-right: 10px;
+}
+
+.fab:hover {
+    color: firebrick;
+    transition: .3s;
+    cursor: pointer;
+}
+
