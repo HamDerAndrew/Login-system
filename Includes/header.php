@@ -27,18 +27,25 @@
             <li class="nav-item active">
               <a class="nav-link text-white" href="/Ordbogen//index.php">Hjem</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="/Ordbogen/signup.php">Min Konto</a>
-            </li>
+            <?php 
+            if(!isset($_SESSION['u_email'])) {
+              echo '<li class="nav-item">
+                      <a class="nav-link text-white" href="/Ordbogen/signup.php">Min Konto</a>
+                    </li>';
+                  }
+            ?>
+            <?php 
+            if(isset($_SESSION['u_email'])) {
+              echo '<li class="nav-item active">
+                      <a href="loggedin.php" class="nav-link text-white">Dashboard</a>
+                    </li>
+                    <form action="logout.php" method="POST"> 
+                      <button class="btn btn-primary" type="submit" name="submit">Log ud</button>
+                    </form>';
+              }
+            ?>
           </ul>
         </div>
-        <?php 
-          if(isset($_SESSION['u_email'])) {
-            echo '<form action="logout.php" method="POST"> 
-                  <button class="btn btn-primary" type="submit" name="submit">Log ud</button>
-                  </form>';
-          }
-        ?>
       </nav>
     </header>
     

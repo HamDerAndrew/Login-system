@@ -140,5 +140,43 @@ function logUdKnap() {
               </form>';
       }
 }
+
+function sletBrugerKnap() {
+    if(isset($_SESSION['u_email'])) {
+        echo '<form action="delete.php" method="POST"> 
+              <button class="btn btn-primary" type="submit" name="delete">Slet bruger</button>
+              </form>';
+      }
+}
+
+function sletBruger() {
+    session_start();
+    if(Isset($_SESSION['u_email'])) {
+        
+        //forbind til db
+        include_once "db.php";
+        $connection;
+
+        //lav $_session array om til string
+        $email = implode(",", $_SESSION);
+
+        $query = "DELETE FROM users  ";
+        $query .= "WHERE email = '$email'";
+
+        $sql = mysqli_query($connection, $query);
+        if(!$sql) {
+            echo "error";
+        } else {
+            session_unset();
+            session_destroy();
+            header("Location: index.php");
+            exit();
+        }  
+
+    } else {
+        header("Location: loggedin.php?=falsedelete");
+        exit();
+    }
+}
     
 ?>
